@@ -1,0 +1,7 @@
+{
+  "name": "Dark Mind ",
+  "description": "Khabiirka ganacsiga ee AI ee uu abuuray Hamze Zinson, oo ku hadla Af-Soomaali.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

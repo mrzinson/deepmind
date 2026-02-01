@@ -1,0 +1,21 @@
+{
+  "name": "deepmind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npx nodemon index.js",
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

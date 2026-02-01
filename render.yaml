@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: deepmind-ai
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: API_KEY
+        value: sk-04a48f0f25d842dfa040a43ec47d5f7a
+      - key: PORT
+        value: 10000
