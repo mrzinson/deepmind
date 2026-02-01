@@ -1,6 +1,9 @@
 
-// Fixed: Importing Blob as GenAIBlob from @google/genai to prevent conflict with browser's native Blob.
-import { Blob as GenAIBlob } from '@google/genai';
+// Local interface for audio blob to avoid dependency on @google/genai
+interface GenAIBlob {
+  data: string;
+  mimeType: string;
+}
 
 export function encode(bytes: Uint8Array): string {
   let binary = '';
