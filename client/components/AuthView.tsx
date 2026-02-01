@@ -54,8 +54,8 @@ const AuthView: React.FC<AuthViewProps> = ({ onProfileComplete }) => {
 
     const validateForm = () => {
         if (!isLogin || showCompleteProfile) {
-            if (!firstName || !middleName || !lastName) {
-                setError('Fadlan buuxi magacaaga oo saddexan.');
+            if (!firstName || !lastName) {
+                setError('Fadlan buuxi magacaaga oo dhammaystiran.');
                 return false;
             }
 
@@ -80,7 +80,7 @@ const AuthView: React.FC<AuthViewProps> = ({ onProfileComplete }) => {
         return true;
     };
 
-    const getFullName = () => `${firstName} ${middleName} ${lastName}`.trim();
+    const getFullName = () => [firstName, middleName, lastName].filter(Boolean).join(' ');
 
     const sendVerificationEmail = async (otp: string, targetEmail: string, targetName: string) => {
         try {
@@ -446,8 +446,9 @@ const AuthView: React.FC<AuthViewProps> = ({ onProfileComplete }) => {
                             className="w-full space-y-3 overflow-hidden"
                             onSubmit={handleInitialSubmit}
                         >
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-3 gap-3">
                                 <input required value={firstName} onChange={e => setFirstName(e.target.value)} placeholder="First Name" className="w-full h-12 bg-[#1e1e1e] border border-white/5 focus:border-[#0285FF]/50 rounded-xl px-4 outline-none text-white text-[13px] placeholder-white/30" />
+                                <input value={middleName} onChange={e => setMiddleName(e.target.value)} placeholder="Middle Name" className="w-full h-12 bg-[#1e1e1e] border border-white/5 focus:border-[#0285FF]/50 rounded-xl px-4 outline-none text-white text-[13px] placeholder-white/30" />
                                 <input required value={lastName} onChange={e => setLastName(e.target.value)} placeholder="Last Name" className="w-full h-12 bg-[#1e1e1e] border border-white/5 focus:border-[#0285FF]/50 rounded-xl px-4 outline-none text-white text-[13px] placeholder-white/30" />
                             </div>
                             <input required type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" className="w-full h-12 bg-[#1e1e1e] border border-white/5 focus:border-[#0285FF]/50 rounded-xl px-4 outline-none text-white text-[13px] placeholder-white/30" />
